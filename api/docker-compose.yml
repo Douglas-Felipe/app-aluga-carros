@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: mongo_db
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo_data:/data/db
+
+  api:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/reservas
+      - JWT_SECRET=jwt_chave_secreta
+    depends_on:
+      - mongo
+
+volumes:
+  mongo_data:
