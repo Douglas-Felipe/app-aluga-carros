@@ -70,7 +70,7 @@ export class AuthService {
     const user = await this.usersService.findByEmail(registerDto.email);
 
     if (user) {
-      throw new UnauthorizedException('Usuário já existe');
+      throw new UnauthorizedException('User already exists');
     }
 
     const createUser = new CreateUserDto();
