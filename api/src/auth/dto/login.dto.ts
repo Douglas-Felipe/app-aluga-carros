@@ -22,6 +22,7 @@ export class LoginDtoResponse {
       _id: 'user-id',
       name: 'Test User',
       email: 'test@example.com',
+      avatar: 'https://example.com/avatar.jpg',
     },
     description: 'User data',
   })
@@ -29,5 +30,6 @@ export class LoginDtoResponse {
     _id: string;
     name: string;
     email: string;
+    avatar?: string;
   };
 }
