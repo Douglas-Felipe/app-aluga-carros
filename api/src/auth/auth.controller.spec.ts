@@ -10,6 +10,7 @@ describe('AuthController', () => {
   beforeEach(async () => {
     const mockAuthService = {
       login: jest.fn(),
+      register: jest.fn(),
     };
 
     const module: TestingModule = await Test.createTestingModule({
@@ -48,6 +49,30 @@ describe('AuthController', () => {
       (authService.login as jest.Mock).mockResolvedValue(expectedResult);
 
       const result = await controller.login(loginDto);
+
+      expect(result).toEqual(expectedResult);
+    });
+  });
+
+  describe('register', () => {
+    it('should return an access token and user data', async () => {
+      const registerDto = {
+        name: 'Test User',
+        email: 'test@example.com',
+        password: 'password123',
+      };
+      const expectedResult = {
+        access_token: 'mockAccessToken',
+        user: {
+          _id: 'someId',
+          name: 'Test User',
+          email: 'test@example.com',
+        },
+      };
+
+      (authService.register as jest.Mock).mockResolvedValue(expectedResult);
+
+      const result = await controller.register(registerDto);
 
       expect(result).toEqual(expectedResult);
     });
