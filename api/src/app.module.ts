@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { UsersModule } from './users/users.module';
 import { VehiclesModule } from './vehicles/vehicles.module';
+import { VehiclesSearchModule } from './vehicles-search/vehicles-search.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { VehiclesModule } from './vehicles/vehicles.module';
     AuthModule,
     UsersModule,
     VehiclesModule,
+    VehiclesSearchModule,
   ],
   controllers: [AppController],
   providers: [

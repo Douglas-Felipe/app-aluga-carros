@@ -143,7 +143,7 @@ describe('AuthService', () => {
       (usersService.findByEmail as jest.Mock).mockResolvedValue(userDocument);
 
       await expect(service.register(registerDto)).rejects.toThrow(
-        'Usuário já existe',
+        'User already exists',
       );
     });
   });

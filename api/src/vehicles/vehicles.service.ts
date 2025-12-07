@@ -34,6 +34,10 @@ export class VehiclesService {
     }
   }
 
+  findByQuery(query: Record<string, unknown>): Promise<VehicleDocument[]> {
+    return this.vehicleModel.find(query).exec();
+  }
+
   async findAll(): Promise<VehicleDocument[]> {
     return this.vehicleModel.find().exec();
   }

@@ -1,12 +1,13 @@
 import {
   IsNotEmpty,
   IsString,
-  IsNumber,
+  IsInt,
   IsBoolean,
   IsOptional,
   Matches,
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { Type, Transform } from 'class-transformer';
 
 export class CreateVehicleDto {
   @ApiProperty({ example: 'Toyota', description: 'Brand of the vehicle' })
@@ -19,8 +20,25 @@ export class CreateVehicleDto {
   @IsNotEmpty()
   model: string;
 
+  @ApiProperty({ example: 'Sedan', description: 'Bodywork of the vehicle' })
+  @IsString()
+  @IsNotEmpty()
+  bodywork: string;
+
+  @ApiProperty({ example: '1.4', description: 'Motor of the vehicle' })
+  @IsString()
+  @IsNotEmpty()
+  motor: string;
+
+  @ApiProperty({ example: 4, description: 'Number of seats of the vehicle' })
+  @Type(() => Number)
+  @IsInt()
+  @IsNotEmpty()
+  seats: number;
+
   @ApiProperty({ example: 2024, description: 'Year of the vehicle' })
-  @IsNumber()
+  @Type(() => Number)
+  @IsInt()
   @IsNotEmpty()
   year: number;
 
@@ -33,7 +51,13 @@ export class CreateVehicleDto {
   plate: string;
 
   @ApiProperty({ example: false, required: false })
+  @Transform(({ value }) => value === 'true' || value === true)
   @IsBoolean()
   @IsOptional()
   isReserved?: boolean;
+
+  @ApiProperty({ example: 'https://example.com/image.jpg', required: true })
+  @IsString()
+  @IsNotEmpty()
+  photo: string;
 }

@@ -17,9 +17,9 @@ import {
   ApiResponse,
 } from '@nestjs/swagger';
 
-@ApiTags('vehicles')
+@ApiTags('vehicles/admin')
 @ApiBearerAuth()
-@Controller('vehicles')
+@Controller('vehicles/admin')
 export class VehiclesController {
   constructor(private readonly vehiclesService: VehiclesService) {}
 

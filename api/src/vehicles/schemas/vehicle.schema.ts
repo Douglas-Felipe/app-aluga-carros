@@ -12,6 +12,15 @@ export class Vehicle {
   model: string;
 
   @Prop({ required: true })
+  bodywork: string;
+
+  @Prop({ required: true })
+  motor: string;
+
+  @Prop({ required: true })
+  seats: number;
+
+  @Prop({ required: true })
   year: number;
 
   @Prop({ required: true, unique: true, index: true })
@@ -19,6 +28,9 @@ export class Vehicle {
 
   @Prop({ default: false })
   isReserved: boolean;
+
+  @Prop({ require: true })
+  photo: string;
 }
 
 export const VehicleSchema = SchemaFactory.createForClass(Vehicle);
