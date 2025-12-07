@@ -15,7 +15,7 @@ services:
       - '3000:3000'
     environment:
       - MONGO_URI=mongodb://mongo:27017/reservas
-      - JWT_SECRET=jwt_chave_secreta
+      - JWT_SECRET=chave_secreta
     depends_on:
       - mongo
 
