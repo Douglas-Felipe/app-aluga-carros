@@ -1,0 +1,82 @@
+<div class="home-container">
+  
+  <header class="header-hero">
+    <div class="header-content">
+       <div class="profile-image-wrapper">
+         <img [src]="userPhotoUrl" alt="Foto de perfil de {{userName}}">
+       </div>
+       <h1>Olá, {{ userName }}</h1>
+     </div>
+  </header>
+
+  <main class="main-content overlapping">
+    
+    <div class="search-filter-container">
+      <button class="search-input-btn">
+        <i class="icon-search primary-red"><img src="assets/search.png"></i>
+        <span>Buscar carro</span>
+      </button>
+      
+      <button class="filter-btn">
+        <i class="icon-filter primary-red"><img src="assets/filter.png"></i>
+        <span>Filtrar</span>
+      </button>
+    </div>
+
+    <section class="reservations-section">
+      <h2>Últimas reservas</h2>
+      
+      <div class="carousel-container">
+        
+        @for (car of latestReservations; track $index) {
+          <div class="car-card">
+            <div class="car-image-wrapper">
+              <img [src]="car.imageUrl" [alt]="car.name">
+            </div>
+            <div class="car-details">
+              <h3>{{ car.name }} - {{ car.year }}</h3>
+              <p class="category">{{ car.category }}</p>
+              <p class="spec">{{ car.engine }}</p>
+              <p class="spec">{{ car.seats }} Lugares</p>
+            </div>
+          </div>
+        } @empty {
+          <div class="car-card">
+            <div class="car-image-wrapper"></div>
+            <div class="car-details">
+              <h3>Nenhum carro disponível</h3>
+            </div>
+          </div>
+        }
+        </div>
+    </section>
+
+    <div class="action-container">
+      <button class="qr-code-btn">
+        <i class="icon-qrcode"><img src="assets/qr-code.png"></i>
+        Acessar por QR code
+      </button>
+    </div>
+
+  </main>
+
+  <nav class="bottom-navbar">
+    <a href="#" class="nav-item active">
+      <i class="icon-home"><img src="assets/inicio.png"></i>
+      <span>INÍCIO</span>
+    </a>
+    <a href="#" class="nav-item">
+      <i class="icon-list"><img src="assets/agendamento.png"></i>
+      <span>AGENDAMENTOS</span>
+    </a>
+    <a href="#" class="nav-item">
+      <i class="icon-call"><img src="assets/central.png"></i>
+      <span>CENTRAL</span>
+    </a>
+    <a href="#" class="nav-item">
+      <i class="icon-user"><img src="assets/perfil.png"></i>
+      <span>PERFIL</span>
+    </a>
+  </nav>
+
+</div>

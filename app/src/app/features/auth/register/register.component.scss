@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: v.$bg-color;
+  background-color: v.$secodary;
   position: relative;
   overflow: hidden;
   padding: 0 20px;
@@ -37,7 +37,7 @@
   }
 
   .app-title {
-    color: v.$text-white;
+    color: v.$white;
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 2px;
@@ -59,7 +59,7 @@ form {
   border: 1px solid transparent;
   font-size: 1rem;
   color: v.$input-text;
-  background-color: v.$input-bg;
+  background-color: v.$white;
   outline: none;
   box-sizing: border-box;
   transition: box-shadow 0.2s, border-color 0.2s;
@@ -70,13 +70,13 @@ form {
 
   &:focus,
   &.ng-invalid.ng-touched {
-    box-shadow: 0 0 0 2px rgba(v.$primary-red, 0.5);
-    border-color: v.$primary-red;
+    box-shadow: 0 0 0 2px rgba(v.$primary, 0.5);
+    border-color: v.$primary;
   }
 }
 
 .error-message {
-  color: v.$primary-red;
+  color: v.$primary;
   font-size: 0.8rem;
   margin-top: 5px;
   text-align: left;
@@ -89,8 +89,8 @@ form {
   padding: 15px;
   border-radius: 50px;
   border: none;
-  background-color: v.$primary-red;
-  color: v.$text-white;
+  background-color: v.$primary;
+  color: v.$white;
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -99,11 +99,11 @@ form {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
   &:hover {
-    background-color: lighten(v.$primary-red, 5%);
+    background-color: lighten(v.$primary, 5%);
   }
   
   &:disabled {
-    background-color: grayscale(v.$primary-red);
+    background-color: grayscale(v.$primary);
     cursor: not-allowed;
   }
 }
@@ -111,7 +111,7 @@ form {
 .forgot-password {
   display: block;
   margin-top: 15px;
-  color: v.$text-white;
+  color: v.$white;
   font-size: 0.9rem;
   font-weight: 300;
   border-bottom: 1px solid transparent;
@@ -119,11 +119,11 @@ form {
 
 .footer {
   margin-top: 60px;
-  color: v.$text-white;
+  color: v.$white;
   font-size: 0.9rem;
 
   .create-account {
-    color: v.$text-white;
+    color: v.$white;
     font-weight: 600;
     text-decoration: underline;
     margin-left: 5px;
