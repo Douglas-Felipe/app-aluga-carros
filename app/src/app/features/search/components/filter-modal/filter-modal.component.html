@@ -1,0 +1,82 @@
+<div class="filter-overlay">
+  <div class="filter-header">
+    <div class="search-title">
+      <i class="icon-search"><img src="assets/search-filter.png"></i> BUSCA
+    </div>
+  </div>
+
+  <div class="filter-body">
+    
+    <div class="control-bar">
+      <button (click)="onCancel()">CANCELAR</button>
+      <span class="title">FILTROS</span>
+      <button (click)="onClear()">LIMPAR</button>
+    </div>
+
+    <div class="scroll-content">
+      
+      <div class="section">
+        <div class="section-header">
+          <span>Tipos de carrocerias</span>
+          <i class="chevron-left">‹</i>
+        </div>
+        <div class="checkbox-grid">
+          @for (cat of types; track $index) {
+            <div 
+              class="checkbox-item"
+              (click)="toggleCategory(cat)"
+            >
+              <div class="box" [class.checked]="selectedTypes.includes(cat)">
+                @if (selectedTypes.includes(cat)) {
+                  <span ></span>
+                }
+              </div>
+              <span class="label">{{ cat }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          <span>Tipos de motores</span>
+          <i class="chevron-left">‹</i>
+        </div>
+        <div class="tags-container">
+          @for (eng of engines; track $index) {
+            <button 
+              class="tag-btn"
+              [class.active]="selectedEngines.includes(eng)"
+              (click)="toggleEngine(eng)"
+            >
+              {{ eng }}
+            </button>
+          }
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          <span>Quantidade de lugares</span>
+          <i class="chevron-left">‹</i>
+        </div>
+        <div class="seats-container">
+          @for (seat of sizesOptions; track $index) {
+            <button 
+              class="seat-btn"
+              [class.active]="selectedSizes.includes(seat)"
+              (click)="toggleSeat(seat)"
+            >
+              0{{ seat }}
+            </button>
+          }
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-action">
+      <button class="btn-apply" (click)="onApply()">APLICAR FILTRO</button>
+    </div>
+  </div>
+</div>

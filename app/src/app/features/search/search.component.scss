@@ -1,0 +1,79 @@
+@use "../../styles/variables.scss" as v;
+
+.search-page-container {
+  min-height: 100vh;
+  background-color: v.$bg-app;
+  padding-bottom: 20px;
+}
+
+.results-header {
+  background-color: v.$secodary;
+  color: v.$white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 { font-size: 1.1rem; font-weight: 500; margin: 0; }
+  
+  button {
+    background: none; border: none; color: v.$white; font-size: 1.5rem;
+    &.filter-trigger { color: v.$primary; }
+  }
+
+  .filter-trigger {
+    .icon-filter img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.results-list {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.car-card {
+  background: v.$white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  height: 280px;
+
+  .image-wrapper {
+    width: 100%;
+    max-height: 120px;
+    display: flex; align-items: center; justify-content: center;
+    img { max-width: 90%; max-height: 90%; object-fit: contain; }
+  }
+
+  .content {
+    flex: 1;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .top-info {
+      display: flex; 
+      justify-content: space-between;
+      margin-bottom: 15px;
+      h3 { margin: 0; font-size: 1.5rem; color: #333; }
+    }
+    
+    .specs { 
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+}
+
+.no-results {
+  text-align: center;
+  margin-top: 50px;
+  color: #888;
+}

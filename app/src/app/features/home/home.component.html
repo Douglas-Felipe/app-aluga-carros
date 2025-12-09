@@ -12,12 +12,12 @@
   <main class="main-content overlapping">
     
     <div class="search-filter-container">
-      <button class="search-input-btn">
+      <button class="search-input-btn" routerLink="/search">
         <i class="icon-search primary-red"><img src="assets/search.png"></i>
         <span>Buscar carro</span>
       </button>
       
-      <button class="filter-btn">
+      <button class="filter-btn" routerLink="/search">
         <i class="icon-filter primary-red"><img src="assets/filter.png"></i>
         <span>Filtrar</span>
       </button>
@@ -35,9 +35,9 @@
             </div>
             <div class="car-details">
               <h3>{{ car.name }} - {{ car.year }}</h3>
-              <p class="category">{{ car.category }}</p>
+              <p class="category">{{ car.type }}</p>
               <p class="spec">{{ car.engine }}</p>
-              <p class="spec">{{ car.seats }} Lugares</p>
+              <p class="spec">{{ car.size }} Lugares</p>
             </div>
           </div>
         } @empty {
