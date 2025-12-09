@@ -1,0 +1,42 @@
+<div class="login-container">
+  <img class="background-watermark" src="assets/guardians-background.png"/>
+
+  <div class="content-wrapper">
+    <div class="logo-section">
+      <img src="assets/gardians-logo.png" alt="Guardians Logo" class="logo-icon">
+      <h1 class="app-title">GUARDIANS</h1>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      
+      <div class="form-group">
+        <input 
+          type="text" 
+          formControlName="username" 
+          placeholder="Usuário" 
+          class="custom-input"
+        >
+      </div>
+
+      <div class="form-group">
+        <input 
+          type="password" 
+          formControlName="password" 
+          placeholder="Senha" 
+          class="custom-input"
+        >
+      </div>
+
+      <button type="submit" class="btn-submit" [disabled]="loginForm.invalid">
+        ENTRAR
+      </button>
+
+      <a href="#" class="forgot-password">Esqueci minha senha</a>
+    </form>
+
+    <div class="footer">
+      <span>Ainda não tem cadastro?</span>
+      <a routerLink="/register" class="create-account">Criar conta</a>
+    </div>
+  </div>
+</div>

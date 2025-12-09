@@ -1,0 +1,46 @@
+<div class="register-container">
+  <img class="background-watermark" src="assets/guardians-background.png" />
+
+  <div class="content-wrapper">
+    <div class="logo-section">
+      <img src="assets/gardians-logo.png" alt="Guardians Logo" class="logo-icon">
+      <h1 class="app-title">GUARDIANS</h1>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <input type="text" formControlName="username" placeholder="Usuário" class="custom-input">
+        @if (usernameRequiredError) {
+            <div class="error-message">Usuário é obrigatório.</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <input type="password" formControlName="password" placeholder="Senha" class="custom-input">
+        @if (passwordRequiredError) { 
+            <div class="error-message">Senha é obrigatória.</div>
+        }
+        @if (passwordMinLengthError) {
+          <div class="error-message">A senha deve ter no mínimo 6 caracteres.</div>
+        }
+        
+      </div>
+
+      <div class="form-group">
+        <input type="password" formControlName="confirmPassword" placeholder="Confirmar Senha" class="custom-input">
+        @if (confirmPasswordRequiredError) {
+          <div class="error-message">Confirmar a senha é obrigatório.</div>
+        }
+        @if (formMatchPasswordError) {
+          <div class="error-message">As senhas não correspondem.</div>
+        }
+      </div>
+
+      <button type="submit" class="btn-submit" [disabled]="registerForm.invalid">
+        REGISTRAR
+      </button>
+
+    </form>
+  </div>
+</div>
